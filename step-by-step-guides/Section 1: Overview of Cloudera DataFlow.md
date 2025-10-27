@@ -73,7 +73,7 @@ SELECT * FROM default.${username}_laptop_data_scored;
 
 If all is good then we're ready to get on with using Iceberg across the Data Lifecycle!!!
 
-## Lab 1. Streaming Data Ingestion to Iceberg using Cloudera Data Flow
+## Lab 1. Overview of the Cloudera Data Flow Service
 
 ### Overview of the Cloudera Data Flow Service
 
