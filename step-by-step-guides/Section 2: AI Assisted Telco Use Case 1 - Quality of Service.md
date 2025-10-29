@@ -159,42 +159,45 @@ STORED AS ICEBERG;
 
   - **Within Properties:**
      - Add new parameters by clicking the "+" icon (make sure not to include any trailing whitespace when you copy/paste):
-
-           - Property Name = `QOS_EXCELLENT`, Property Value =
-               ```
-               ${
-               ${wifi_band:equalsIgnoreCase('5 GHz')
-               :and(\${signal_strength_dbm:isEmpty():not()
-               :and(\${signal_strength_dbm:toNumber():ge(-65)})})}
-               :or(
-               ${wifi_band:equalsIgnoreCase('2.4 GHz')
-               :and(\${signal_strength_dbm:isEmpty():not()
-               :and(\${signal_strength_dbm:toNumber():ge(-55)})})}
-               )
-               }
-               ```
-            - Property Name = `QOS_FAIR`, Property Value =
-               ```
-               ${
-               ${wifi_band:equalsIgnoreCase('5 GHz')
-               :and(\${signal_strength_dbm:isEmpty():not()
-               :and(\${signal_strength_dbm:toNumber():ge(-75)})
-               :and(\${signal_strength_dbm:toNumber():lt(-65)})})}
-               :or(
-               ${wifi_band:equalsIgnoreCase('2.4 GHz')
-               :and(\${signal_strength_dbm:isEmpty():not()
-               :and(\${signal_strength_dbm:toNumber():ge(-70)})
-               :and(\${signal_strength_dbm:toNumber():lt(-55)})})}
-               )
-               }
-               ```
-            - Property Name = `QOS_POOR`, Property Value =
-               ```
-               ${signal_strength_dbm:isEmpty():not()
-               :and(\${signal_strength_dbm:toNumber():lt(-75)})}
-               ```
-
-**
+     
+       - Property Name1 = `QOS_EXCELLENT`, Property Value =
+       
+        ```
+        ${
+        ${wifi_band:equalsIgnoreCase('5 GHz')
+        :and(\${signal_strength_dbm:isEmpty():not()
+        :and(\${signal_strength_dbm:toNumber():ge(-65)})})}
+        :or(
+        ${wifi_band:equalsIgnoreCase('2.4 GHz')
+        :and(\${signal_strength_dbm:isEmpty():not()
+        :and(\${signal_strength_dbm:toNumber():ge(-55)})})}
+        )
+        }
+        ```
+        - Property Name = `QOS_FAIR`, Property Value =
+          
+         ```
+         ${
+         ${wifi_band:equalsIgnoreCase('5 GHz')
+         :and(\${signal_strength_dbm:isEmpty():not()
+         :and(\${signal_strength_dbm:toNumber():ge(-75)})
+         :and(\${signal_strength_dbm:toNumber():lt(-65)})})}
+         :or(
+         ${wifi_band:equalsIgnoreCase('2.4 GHz')
+         :and(\${signal_strength_dbm:isEmpty():not()
+         :and(\${signal_strength_dbm:toNumber():ge(-70)})
+         :and(\${signal_strength_dbm:toNumber():lt(-55)})})}
+         )
+         }
+         ```
+         - Property Name = `QOS_POOR`, Property Value =
+           
+         ```
+         ${signal_strength_dbm:isEmpty():not()
+         :and(\${signal_strength_dbm:toNumber():lt(-75)})}
+         ```
+           
+**
 
 - **Adjust the Kafka Producer Publisher called "PublishKafka2RecordCDP":**
   - Establish a relationship between the "RouteOnAttribute" processor and the "QOS_EXCELLENT - PublishKafka2RecordCDP" Processor for the "QOS_EXCELLENT" relationship.
@@ -213,10 +216,10 @@ STORED AS ICEBERG;
 - 1. Configure these additional processors:
         - Processor 2 (QOS_FAIR):
             - Settings: Prefix the Processor with the new name "QOS_FAIR - ".
-            - Properties: Topic Name = JT_QOS_FAIR_KAFKA.
+            - Properties: Topic Name = `JT_QOS_FAIR_KAFKA`.
         - Processor 3 (QOS_POOR):
             - Settings: Prefix the Processor with the new name "QOS_POOR - ".
-            - Properties: Topic Name = JT_QOS_POOR_KAFKA.
+            - Properties: Topic Name = `JT_QOS_POOR_KAFKA`.
 
 - Establish the relevant relationships between the various processors.
 
@@ -441,3 +444,4 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
