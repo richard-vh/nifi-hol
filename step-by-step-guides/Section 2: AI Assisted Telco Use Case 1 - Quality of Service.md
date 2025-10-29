@@ -1,4 +1,4 @@
-# Telco Usecase 1: Quality of Service on IngestUsecase Summary
+## Telco Usecase 1: Quality of Service on Ingest Use Case Summary
 
 (Summary content needs to be added here.
 
@@ -444,4 +444,5 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
