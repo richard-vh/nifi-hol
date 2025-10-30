@@ -302,44 +302,79 @@ STORED AS ICEBERG;
 
 - **Execute the Script:** Right-click the "ExecuteScript" Processor and select "Run Once."
 
+![alt text](/img/image50.png)
+
 - **Verify Queued Message:** Observe that the "success" relationship now indicates one queued message.
+
+![alt text](/img/image51.png)
 
 - **List the Queue:** Right-click on the relationship with the queued message and select "List Queue."
 
+![alt text](/img/image52.png)
+
 - **View Flow File:** A new page should open, displaying the Flow File created in the previous step.
+
+![alt text](/img/image53.png)
 
 - **Examine Message Content:** Click the "Eye" icon on the right-hand side to view the message.
 
+![alt text](/img/image54.png)
+
 - **Review JSON String:** A new tab will open, presenting a large JSON string.
+
+![alt text](/img/image55.png)
 
 - **Continue Flow and Analysis:** Close the tab and proceed to pass the message through the rest of the flow, examining how the output changes at each stage. You can do this by clicking "Run Once" on each component in turn.
 - **Run the Entire Canvas:** Once your analysis is complete, right-click on the canvas and select "Start" This will execute the entire canvas continuously until it is manually stopped. (Please stop the Canvas before you close the window: you do not need to leave it running)
+
+![alt text](/img/image56.png)
 
 ## Analysing Kafka via Streams Messaging Manager
 
 ### Stage 6: Access Streams Messaging Manager
 
 - - Navigate to the Control Page Home Page.
+ 
+![alt text](/img/image57png)
+![alt text](/img/image58.png)
 
 - - Go to the "Management Console."
+ 
+![alt text](/img/image59.png)
 
 - - Select the "Datahubs" Page.
+ 
+![alt text](/img/image60.png)
 
 - - Search for "cdfv1-smm-dh" and click on the Datahub.
+ 
+![alt text](/img/image61.png)
+![alt text](/img/image62.png)
 
 - - Click on "Streams Messaging Manager."
+
+![alt text](/img/image63.png)
 
 ### Stage 7: Explore Topics
 
 - - Click on "Topics."
 
+![alt text](/img/image64.png)
+
 - - Search for your UserID (these are the topics you previously produced to) and select one of them.
+
+![alt text](/img/image65.png)
 
 ### Stage 8: Review Topic Details
 
 - - Click on the "Details" Tab.
 
+![alt text](/img/image66.png)
+
 - - Explore the various tabs at the top of the screen, paying close attention to the "Data Explorer" tab to understand the data being written to the topic.
+
+![alt text](/img/image67.png)
+![alt text](/img/image68.png)
 
 ## Interacting with Kafka via Flink SQL
 
@@ -350,35 +385,53 @@ STORED AS ICEBERG;
 - Select the "Datahubs" Page.
 - Search for "cdf-streaming-analytics-dh" and click on the Datahub.
 
+![alt text](/img/image69.png)
+![alt text](/img/image70.png)
+
 - Click on "Streaming SQL Console."
+
+![alt text](/img/image71.png)
+![alt text](/img/image72.png)
 
 ### Stage 10: Keytab Unlock (If prompted)
 
 - Click on your user's icon/name at the bottom-left of the screen.
 
+![alt text](/img/image73.png)
+
 - Select "Manage Keytab."
 - Enter your username and workload password, then click "Unlock Keytab."
+
+![alt text](/img/image74.png)
 
 ### Stage 11: Project Navigation
 
 - Open the "jturkington_default" project. (Notify the instructor for assistance if you cannot see or access the Project)
 
+![alt text](/img/image75.png)
+
 ### Stage 12: Running Flink SQL Jobs
 
 - Click on "Jobs," select "New Job," and provide a name before clicking "Create."
 
+![alt text](/img/image76.png)
+![alt text](/img/image77.png)
+![alt text](/img/image78.png)
+
 - For this demonstration, I have pre-configured access to my Kafka Topics. You will use the instructor's topics rather than configuring access to your own. (A demo will be provided on how to access your existing Kafka Topics.)
 - Copy the following query into the editor and click "execute":
-- ```SELECT \* FROM JT_QOS_POOR_KAFKA```
+- `SELECT * FROM JT_QOS_POOR_KAFKA`
+
+![alt text](/img/image79.png)
 
 - Execute the next query to perform a window action, counting and aggregating data by BSSID as it arrives in the Kafka Topic:
 
-```
+```ruby
 WITH src AS (
 SELECT
-\*,
+*,
 PROCTIME() AS proc_time
-FROM \`ssb\`.\`jturkington_default\`.\`JT_QOS_POOR_KAFKA\`
+FROM `ssb`.`jturkington_default`.`JT_QOS_POOR_KAFKA`
 )
 SELECT
 window_start,
@@ -401,12 +454,12 @@ GROUP BY window_start, window_end, bssid;
 
 - Finally, run the last query to enrich the data with information from our data lake (a Kudu Table). This query uses the OUI ID to map to a more readable device name, allowing us to understand device counts over time:
 
-```
+```ruby
 WITH src AS (
 SELECT
-\*,
+*,
 PROCTIME() AS proc_time
-FROM \`ssb\`.\`jturkington_default\`.\`JT_QOS_POOR_KAFKA\`
+FROM `ssb`.`jturkington_default`.`JT_QOS_POOR_KAFKA`
 ),
 win AS (
 SELECT
@@ -426,9 +479,9 @@ SELECT
 w.window_start,
 w.window_end,
 COALESCE(d.device_type, 'Unknown') AS device_type,
-COUNT(\*) AS total_device_type_count
+COUNT(*) AS total_device_type_count
 FROM win AS w
-LEFT JOIN \`cdf-kudu-dh-kudu\`.\`default\`.\`default.device_oui_dim\` d
+LEFT JOIN `cdf-kudu-dh-kudu`.`default`.`default.device_oui_dim` d
 ON w.mac_oui = d.mac_oui
 GROUP BY w.window_start, w.window_end, COALESCE(d.device_type, 'Unknown');
 ```
@@ -437,7 +490,7 @@ GROUP BY w.window_start, w.window_end, COALESCE(d.device_type, 'Unknown');
 
 ## Kudu Create Table Statement
 
-```
+```rubu
 CREATE TABLE default.JT_device_oui_dim (
 mac_oui STRING,
 vendor STRING,
@@ -508,6 +561,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
