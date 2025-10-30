@@ -474,7 +474,7 @@ GROUP BY w.window_start,
 
 ## Kudu Create Table Statement
 
-```rubu
+```ruby
 CREATE TABLE default.JT_device_oui_dim (
 mac_oui STRING,
 vendor STRING,
@@ -545,6 +545,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
