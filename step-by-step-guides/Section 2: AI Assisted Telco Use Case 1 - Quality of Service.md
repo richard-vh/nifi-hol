@@ -420,7 +420,10 @@ STORED AS ICEBERG;
 
 - For this demonstration, I have pre-configured access to my Kafka Topics. You will use the instructor's topics rather than configuring access to your own. (A demo will be provided on how to access your existing Kafka Topics.)
 - Copy the following query into the editor and click "execute":
-- `SELECT * FROM JT_QOS_POOR_KAFKA`
+
+```ruby
+SELECT * FROM JT_QOS_POOR_KAFKA
+```
 
 ![alt text](/img/image79.png)
 
@@ -437,7 +440,7 @@ SELECT
 window_start,
 window_end,
 bssid,
-COUNT(\*) AS record_count,
+COUNT(*) AS record_count,
 SUM(data_usage_mb) AS total_usage_mb,
 AVG(CAST(signal_strength_dbm AS DOUBLE)) AS avg_signal_dbm,
 MIN(signal_strength_dbm) AS min_signal_dbm,
@@ -561,6 +564,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
