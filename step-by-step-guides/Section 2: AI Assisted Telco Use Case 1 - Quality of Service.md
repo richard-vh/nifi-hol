@@ -22,6 +22,8 @@ Completed Catalog
 
 - Create Iceberg Table for NiFi Flow Exceptions:
 
+![alt text](/img/image1.png)
+
 ```ruby
 CREATE TABLE <USER_ID>_QOS_POOR_FAILURE_ICEBERG (
 wifi_band STRING,
@@ -47,49 +49,82 @@ STORED AS ICEBERG;
 - Open the Catalog.
 
 
+![alt text](/img/image2.png)
+
 - Search for "Telco Usecase 1- Quality of Service on Ingest - Participant".
+
+![alt text](/img/image3.png)
 
 - Click on "Telco Usecase 1- Quality of Service on Ingest - Participant 2".
 
+![alt text](/img/image4.png)
+![alt text](/img/image5.png)
+
 - Click "Deploy".
 
+![alt text](/img/image6.png)
+
 - Select the HoL Workspace for the HoL (there should only be one; if not, ask the Instructor) then click "Continue".
+
+![alt text](/img/image7.png)
 
 - **Populate the Overview Page:**
   - Enter a "Distinct Deployment Name using your User ID or Name".
   - Leave the rest of the fields blank.
   - Click "Next".
+ 
+![alt text](/img/image8.png)
 
 - Click "Next" on the "NiFi Configuration" Page.
+
+![alt text](/img/image9.png)
 
 - Populate the Parameters Page:
   - Enter your Workload Username.
   - Enter your Workload Password.
   - Click "Next".
 
+![alt text](/img/image10.png)
+
 - Click "Next" on the "Sizing & Scaling Page".
+
+![alt text](/img/image11.png)
 
 - Click "Next" on the "Key Performance Indicators Page".
 
+![alt text](/img/image12.png)
+
 - Click "Deploy" on the "Review Page".
 
+![alt text](/img/image13.png)
+
 - Click anywhere on the screen. You have now navigated to the "Deployments" page. Search for your Deployment if it is not visible on the main page.
+
+![alt text](/img/image14.png)
 
 ### Stage 3: Navigating to your Deployment and Opening the Canvas
 
 - Click on your Deployment.
 
+![alt text](/img/image15.png)
+![alt text](/img/image16.png)
 
 - Click on "Actions" on the Top Right and select "View in NiFi" to open the Canvas.
 
+![alt text](/img/image17.png)
+![alt text](/img/image18.png)
 
 ### Stage 4: Building on the Canvas
 
 - Double-click on the Processor in the middle (ignore any errors).
 
+![alt text](/img/image19.png)
+![alt text](/img/image20.png)
+
 
 - You should see three Processors deployed within your existing Canvas (click and drag the screen to navigate the Canvas).
 
+![alt text](/img/image21.png)
 
 - Right-click on the "Execute Script" Processor and select "Configure".
   - **View Settings:** Here you can give the Processor a custom name.
@@ -97,47 +132,62 @@ STORED AS ICEBERG;
   - **View Properties:** Single-click the "Script Body" to see what will be run.
   - **View Relationships:** Note that the "failure" relationship has been terminated.
 
+![alt text](/img/image22.png)
 
 - Drag a new "Processor" onto the Canvas.
   - Hold click on the Processor Icon.
 
+![alt text](/img/image23.png)
 
 - Drag onto the Canvas and release.
 
+![alt text](/img/image24.png)
+![alt text](/img/image25.png)
 
 - Search for the "SplitJson" Processor and select "ADD".
 
+![alt text](/img/image26.png)
+![alt text](/img/image27.png)
+
 - Once you add the Processor, you can click and hold it to move it to a new location.
 
+![alt text](/img/image28.png)
 
 - Hover over the "Execute Script" Processor and note the downward arrow.
 
+![alt text](/img/image29.png)
 
 - Click on the downward arrow, attach it to the "SplitJson" processor, create the connector for the "Success" Relationship, and click "ADD".
 
+![alt text](/img/image30.png)
 
 - Right-click on the "SplitJson" Processor and select "Configure".
   - Navigate to "Properties".
   - Populate the "JsonPath Expression" value as \$\[\*\]
   - Click "Apply".
-
+ 
+![alt text](/img/image31.png)
 
 - Right-click on the "SplitJson" Processor and select "Configure".
   - Navigate to "Relationships"
   - Tick the "Terminate" box for "Failure" and "Original".
   - Click "Apply".
 
+![alt text](/img/image32.png)
 
 - Now add a new Processor called "EvaluateJsonPath" and then "ADD".
 
+![alt text](/img/image33.png)
 
 - Create a new Relationship between "SplitJson" and the "EvaluateJsonPath" processor for the "split" relationship.
 
+![alt text](/img/image34.png)
 
 - Right-click on the "EvaluateJsonPath" and open "Configure".
   - **Within Relationships:**
     - Terminate the "failure" and the "unmatched relationship".
 
+![alt text](/img/image35.png)
 
 - 1. **Within Properties:**
         - Change "destination" to "flowfile-attribute".
@@ -145,17 +195,21 @@ STORED AS ICEBERG;
             - Property Name = `signal_strength_dbm`, Property Value = `$.signal_strength_dbm`
             - Property Name = `wifi_band`, Property Value = `$.wifi_band`
 
+![alt text](/img/image36.png)
 
 - Now add a new Processor called "RouteOnAttribute" and then "ADD".
 
+![alt text](/img/image37.png)
 
 - Create a new Relationship from "EvaluateJsonPath" for "Matched".
 
+![alt text](/img/image38.png)
 
 - Right-click on the "RouteOnAttribute" and open "Configure".
   - **Within Relationships:**
     - Terminate for "Unmatched".
 
+![alt text](/img/image39.png)
 
   - **Within Properties:**
      - Add new parameters by clicking the "+" icon (make sure not to include any trailing whitespace when you copy/paste):
@@ -196,22 +250,28 @@ STORED AS ICEBERG;
          ${signal_strength_dbm:isEmpty():not()
          :and(\${signal_strength_dbm:toNumber():lt(-75)})}
          ```
-           
-**
+
+![alt text](/img/image40.png)
 
 - **Adjust the Kafka Producer Publisher called "PublishKafka2RecordCDP":**
   - Establish a relationship between the "RouteOnAttribute" processor and the "QOS_EXCELLENT - PublishKafka2RecordCDP" Processor for the "QOS_EXCELLENT" relationship.
-
+ 
+![alt text](/img/image41.png)
 
 - 1. **Within the Properties Tab:**
         - Rename the Topic Name to your own Username Prefix.
+    
+![alt text](/img/image42.png)
 
 - **Configure remaining relationships for "QOS_FAIR" and "QOS_POOR":**
   - Copy the existing Kafka Processor by right-clicking and selecting "copy".
 
+![alt text](/img/image43.png)
 
 - 1. Right-click on the Canvas and select "Paste" twice to create two duplicates.
 
+![alt text](/img/image44.png)
+![alt text](/img/image45.png)
 
 - 1. Configure these additional processors:
         - Processor 2 (QOS_FAIR):
@@ -223,16 +283,20 @@ STORED AS ICEBERG;
 
 - Establish the relevant relationships between the various processors.
 
+![alt text](/img/image46.png)
 
 - **Implement failover logic for "QOS_POOR" records:**
   - Establish a relationship between "QOS_POOR - PublishKafka2RecordCDP" and the "PutIceberg" Processor for "Failure Relationship". This ensures that "QOS_POOR" records are captured in the event of Kafka cluster unavailability and can be replayed later.
 
+![alt text](/img/image47.png)
+![alt text](/img/image48.png)
 
 - Edit the PutIceberg Processor:
   - Within the Properties:
     - Adjust the Table name to what was created during the Pre-Requisites.
     - If you're unable to change the properties, check that the processor is stopped first - click "Stop and Configure" to edit
 
+![alt text](/img/image49.png)
 
 ### Stage 5: Running the NiFi Canvas and Viewing the Output
 
@@ -444,5 +508,6 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
