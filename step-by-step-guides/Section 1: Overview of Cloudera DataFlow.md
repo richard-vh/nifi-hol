@@ -1,4 +1,6 @@
-# Section 2: Demonstrating Iceberg Capabilities across the Data Lifecycle and Cloudera Product Stack
+# Section 1: Overview of Cloudera Dataflow
+
+[![Screenshot of the Flow Design Lifecycle page](./assets/flow-design.png)](https://view.ceros.com/cloudera/flow-design-lifecycle-text?mobileHeightOverride=1361)
 
 ![alt text](../img/datalifecycle.png)
 
