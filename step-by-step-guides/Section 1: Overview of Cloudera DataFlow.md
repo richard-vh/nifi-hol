@@ -26,11 +26,11 @@ Cloudera Data Flow is a cloud-native universal data distribution service powered
 Make sure you set a workload password for your assigned workload user i.e. user001.
 Log into the **Cloudera Data Platform** -> Click your **Profile** Name at the bottom left of the Home Page and select **Profile**.
 
-![alt text](https://raw.githubusercontent.com/richard-vh/iceberg-spark-hol/refs/heads/main/img/workloadpassword1.png)
+![alt text](../img/workloadpassword1.png)
 
 In your user's setting page, click **Set Workload Password**, enter any password twice and click the **Set Workload Password** button.
 
-![alt text](https://raw.githubusercontent.com/richard-vh/iceberg-spark-hol/refs/heads/main/img/workloadpassword2.png)
+![alt text](../img/workloadpassword2.png)
 
 If all is good then we're ready to get on with using Iceberg across the Data Lifecycle!!!
 
