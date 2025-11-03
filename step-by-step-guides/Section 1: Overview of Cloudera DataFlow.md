@@ -4,21 +4,6 @@
 
 Cloudera Data Flow is a cloud-native universal data distribution service powered by Apache NiFi​​ that enables you to connect to any data source, process and deliver data to any destination. The cloud-native service enables self-serve deployments of Apache NiFi data flows from a central catalog into auto-scaling Kubernetes clusters, with centralized monitoring and alerting capabilities for the deployments. Let's familiarise ourselves with the Data Flow service.
 
-### Agenda
-
-* [Before Starting the Labs](#before-starting-the-labs)<br/>
-* [Lab 1. Streaming Data Ingestion to Iceberg using Cloudera Data Flow](#lab-1-streaming-data-ingestion-to-iceberg-using-cloudera-data-flow)<br/>
-  * [Overview of the Cloudera Data Flow Service](#overview-of-the-cloudera-data-flow-service)<br/>
-  * [Deploy a Custom Data Flow Template](#deploy-a-custom-data-flow-template)<br/>
-* [Lab 2. Machine Learning with Iceberg tables using Cloudera AI](#lab-2-machine-learning-with-iceberg-tables-using-cloudera-ai)<br/>
-  * [Creating and Setting up your Cloudera AI Project](#creating-and-setting-up-your-cloudera-ai-project)<br/>
-  * [Running Interactive Spark Session and Training and Tuning Models](#running-interactive-spark-session-and-training-and-tuning-models)<br/>
-  * [Using JupyterLab to review the model output](#using-jupyterlab-to-review-the-model-output)<br/>
-  * [Reviewing Model Run Experiments](#reviewing-model-run-experiments)<br/>
-  * [Scheduling a Job in Cloudera AI](#scheduling-a-job-in-cloudera-ai)<br/>
-  * [Delete CAI Project and Clean up resources](#delete-cai-project-and-clean-up-resources)<br/>
-* [Lab 3. Data Visualization using Iceberg tables in Cloudera Data Warehouse](#lab-3-data-visualization-using-iceberg-tables-in-cloudera-data-warehouse)<br/>
-
 ## Before Starting the Labs
 
 **Your instructor will run through each of the exercises giving you the oppotunity to view them go through it first. After that you'll be given time to go through each exercise on your own.**
