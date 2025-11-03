@@ -1,20 +1,7 @@
-## Telco Usecase 1: Quality of Service on Ingest Use Case Summary
-
-(Summary content needs to be added here.
-
-Completed Catalog
-
-- Telco Usecase 1 - Quality of Service on Ingest
-- Telco Usecase 1 - Quality of Service on Ingest - Participant
-
 # Section 2 - Evaluating Quality of Service on Ingest
 
 ## Description
-
-## Location of Artifacts
-
-- Telco Usecase 1 - Quality of Service on Ingest
-- Telco Usecase 1 - Quality of Service on Ingest - Participant (Currently Prefixed with a 2)
+Add some content!!!!!
 
 ## Pre-Requisites
 
@@ -545,6 +532,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
