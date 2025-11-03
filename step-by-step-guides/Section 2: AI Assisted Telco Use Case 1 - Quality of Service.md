@@ -5,7 +5,7 @@ Add some content!!!!!
 
 ## Pre-Requisites
 
-### Stage 1: Pre-Requisites
+### Lab 1: Pre-Requisites
 
 - Create Iceberg Table for NiFi Flow Exceptions:
 
@@ -31,7 +31,7 @@ STORED AS ICEBERG;
 
 ## NiFi Development
 
-### Stage 2: Deploy a NiFi Flow from the Catalog
+### Lab 2: Deploy a NiFi Flow from the Catalog
 
 - Open the Catalog.
 
@@ -89,7 +89,7 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image14.png)
 
-### Stage 3: Navigating to your Deployment and Opening the Canvas
+### Lab 3: Navigating to your Deployment and Opening the Canvas
 
 - Click on your Deployment.
 
@@ -101,7 +101,7 @@ STORED AS ICEBERG;
 ![alt text](/img/image17.png)
 ![alt text](/img/image18.png)
 
-### Stage 4: Building on the Canvas
+### Lab 4: Building on the Canvas
 
 - Double-click on the Processor in the middle (ignore any errors).
 
@@ -285,7 +285,7 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image49.png)
 
-### Stage 5: Running the NiFi Canvas and Viewing the Output
+### Lab 5: Running the NiFi Canvas and Viewing the Output
 
 - **Execute the Script:** Right-click the "ExecuteScript" Processor and select "Run Once."
 
@@ -318,7 +318,7 @@ STORED AS ICEBERG;
 
 ## Analysing Kafka via Streams Messaging Manager
 
-### Stage 6: Access Streams Messaging Manager
+### Lab 6: Access Streams Messaging Manager
 
 - - Navigate to the Control Page Home Page.
  
@@ -342,7 +342,7 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image63.png)
 
-### Stage 7: Explore Topics
+### Lab 7: Explore Topics
 
 - - Click on "Topics."
 
@@ -352,7 +352,7 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image65.png)
 
-### Stage 8: Review Topic Details
+### Lab 8: Review Topic Details
 
 - - Click on the "Details" Tab.
 
@@ -365,7 +365,7 @@ STORED AS ICEBERG;
 
 ## Interacting with Kafka via Flink SQL
 
-### Stage 9: To access the Flink Streaming SQL Console
+### Lab 9: To access the Flink Streaming SQL Console
 
 - Navigate to the Control Page Home Page.
 - Go to the "Management Console."
@@ -380,7 +380,7 @@ STORED AS ICEBERG;
 ![alt text](/img/image71.png)
 ![alt text](/img/image72.png)
 
-### Stage 10: Keytab Unlock (If prompted)
+### Lab 10: Keytab Unlock (If prompted)
 
 - Click on your user's icon/name at the bottom-left of the screen.
 
@@ -391,13 +391,13 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image74.png)
 
-### Stage 11: Project Navigation
+### Lab 11: Project Navigation
 
 - Open the "jturkington_default" project. (Notify the instructor for assistance if you cannot see or access the Project)
 
 ![alt text](/img/image75.png)
 
-### Stage 12: Running Flink SQL Jobs
+### Lab 12: Running Flink SQL Jobs
 
 - Click on "Jobs," select "New Job," and provide a name before clicking "Create."
 
@@ -532,6 +532,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
