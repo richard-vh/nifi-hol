@@ -2,11 +2,7 @@
 
 [![Screenshot of the Flow Design Lifecycle page](../img/flow-design.png)](https://view.ceros.com/cloudera/flow-design-lifecycle-text?mobileHeightOverride=1361)
 
-![alt text](../img/datalifecycle.png)
-
-Cloudera Open Data Lakehouse powered by Apache Iceberg offers several key benefits that can significantly enhance your data management strategy. First, it provides better **performance and scalability** through innovative metadata management and flexible partitioning. It’s **fully open**, meaning there’s no vendor lock-in—thanks to its open-source foundation, it **supports a diverse ecosystem and community**. The platform also supports **multi-function analytics**, allowing different compute engines to access and process Iceberg tables concurrently and consistently. For those focused on data quality and consistency, it includes advanced capabilities like **ACID-compliant transactions, time travel, rollback, in-place partition evolution, and Iceberg replication**. Finally, Cloudera’s solution stands out with its ability to enable **multi-hybrid cloud deployments**, offering the freedom and portability to deploy wherever you need.
-
-This hands-on lab takes you through the data lifecycle showcasing the ability to work with the same Iceberg tables across multiple engine and analytics types.
+Cloudera Data Flow is a cloud-native universal data distribution service powered by Apache NiFi​​ that enables you to connect to any data source, process and deliver data to any destination. The cloud-native service enables self-serve deployments of Apache NiFi data flows from a central catalog into auto-scaling Kubernetes clusters, with centralized monitoring and alerting capabilities for the deployments. Let's familiarise ourselves with the Data Flow service.
 
 ### Agenda
 
@@ -27,59 +23,11 @@ This hands-on lab takes you through the data lifecycle showcasing the ability to
 
 Your workload user name and password has been provided by the facilitator e.g. user001/hsgdguquuqyququ. Keep it handy as you'll need it for certain configurations.
 
-We're going to create some Iveberg tables to use across the labs in this section.
-
-1. Sign in to the Cloudera Control Plane web interface.
-2. On the **Data Warehouse** tile, click on the ellipses &#10247;and select **Open Data Warehouse**.
-
-![alt text](../img/icebergcdw1.png)
-
-3. Under the **Virtual Warehouses** tab, locate the **workshop-impala-vw**h virtual warehouse and click on the **Hue** application icon.
-
-![alt text](../img/icebergcdw2.png)
-
-4. In the Hue application that opens in your browser you should see that the Impala engine is selected. Impala is a parallel processing SQL query engine that enables users to execute low latency SQL queries directly against large dataset. Copy and paste the code below into the editor pane. The code uses variables, so enter your user id in the username variable that is displayed at the bottom of the editor pane (e.g. user001).
-
-![alt text](../img/icebergcdw3.png)
-
-```ruby
-DROP TABLE IF EXISTS default.${username}_laptop_data;
-DROP TABLE IF EXISTS default.${username}_laptop_data_scored;
-
-CREATE TABLE default.${username}_laptop_data (
-  laptop_id STRING,
-  latitude STRING,
-  longitude STRING,
-  temperature STRING,
-  event_ts STRING
-) STORED AS iceberg;
-
-CREATE TABLE default.${username}_laptop_data_scored (
-    laptop_id   INT,
-    latitude    DOUBLE,
-    longitude   DOUBLE,
-    temperature DOUBLE,
-    event_ts    STRING,
-    anomaly     INT
-)  STORED AS parquet;
-
-SELECT * FROM default.${username}_laptop_data;
-SELECT * FROM default.${username}_laptop_data_scored;
-```
-
-5. Use your cursor to select and highlight each SQL statement and execute each one by clicking the execute button :arrow_forward:.
-   
-   After executing all of the SQL statements you should have created 3 Tables: 2 Iceberg and 1 Parquet and ensured that they are not pre-populated.
-
-![alt text](../img/icebergcdw4.png)
+Content to add
 
 If all is good then we're ready to get on with using Iceberg across the Data Lifecycle!!!
 
 ## Lab 1. Overview of the Cloudera Data Flow Service
-
-### Overview of the Cloudera Data Flow Service
-
-Cloudera Data Flow is a cloud-native universal data distribution service powered by Apache NiFi​​ that enables you to connect to any data source, process and deliver data to any destination. The cloud-native service enables self-serve deployments of Apache NiFi data flows from a central catalog into auto-scaling Kubernetes clusters, with centralized monitoring and alerting capabilities for the deployments. Let's familiarise ourselves with the Data Flow service.
 
 1. Go back to the Cloudera Control Plane web interface.
 2. Click the **Data Flow** tile.
