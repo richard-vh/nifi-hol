@@ -43,7 +43,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image81.png)
 
-- Create a new JoltTransformJSON Processor on the Canvas, we will use this Processor to create a Payload which will be sent to our Model Endpoint deployed within Cloudera AI (Demoed Previously).
+- Create a new `JoltTransformJSON` processor on the canvas. We will use this processor to create a payload which will be sent to our model endpoint deployed within Cloudera AI (Demoed Previously).
 
 ![alt text](/img/image82.png)
 
