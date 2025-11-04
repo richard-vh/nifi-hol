@@ -322,7 +322,7 @@ STORED AS ICEBERG;
 
 - Navigate to the Control Page Home Page.
  
-![alt text](/img/image57png)
+![alt text](/img/image57.png)
 
 ![alt text](/img/image58.png)
 
@@ -533,6 +533,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
