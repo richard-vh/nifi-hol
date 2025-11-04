@@ -15,7 +15,7 @@ Add content!!!
 - Populate the Overview Page:
   - Enter a "Distinct Deployment Name using your User ID or Name".
   - Leave the rest of the fields blank.
-- Click "Next".
+  - Click "Next".
 - "Click "Next" on the "NiFi Configuration" Page.
 - Populate the Parameters Page:
   - Enter your Workload Username.
@@ -26,7 +26,7 @@ Add content!!!
        cdfv1-smm-dh-corebroker0.jt-demo.u5hb-n231.a2.cloudera.site:9093,
        cdfv1-smm-dh-corebroker2.jt-demo.u5hb-n231.a2.cloudera.site:9093
     ```
-- Click "Next".
+  - Click "Next".
 - Click "Next" on the "Sizing & Scaling Page".
 - Click "Next" on the "Key Performance Indicators Page".
 - Click "Deploy" on the "Review Page".
