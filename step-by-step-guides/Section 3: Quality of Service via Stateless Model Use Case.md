@@ -1,7 +1,7 @@
 # Section 3 - Quality of Service via Stateless Model Use Case
 
 ## Description
-Add content!!!
+This lab guides you through building an AI-driven data pipeline in Apache NiFi. You will modify a dataflow to call an external, stateless AI model to perform real-time anomaly detection on telco data. You will use Jolt to format the API request, InvokeHTTP to get a prediction from the model, and then route records identified as 'ANOMALY' to a specific Apache Kafka topic.
 
 
 ### Lab 1: Deploy a NiFi Flow from the Catalog
