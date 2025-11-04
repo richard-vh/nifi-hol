@@ -35,7 +35,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ### Lab 2: Building on the Canvas
 
-- Double-click on the Processor in the middle (ignore any errors).
+- Double-click on the Process Group in the middle of the canvas (ignore any errors).
 
 ![alt text](/img/image80.png)
 
