@@ -1,4 +1,4 @@
-# Section 2 - AI Assisted Telco Use Case 1 - Quality of Service
+# Section 2 - Quality of Service Ingest Use Case
 
 ## Description
 This hands-on lab guides you through building a real-time data pipeline to monitor and analyze telecommunications Quality of Service (QoS).
@@ -549,6 +549,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
