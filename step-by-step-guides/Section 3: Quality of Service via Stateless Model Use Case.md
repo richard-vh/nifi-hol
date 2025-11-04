@@ -7,33 +7,31 @@ Add content!!!
 ### Lab 1: Deploy a NiFi Flow from the Catalog
 
 - Open the Catalog.
-- Search for "Telco Usecase 3- Quality of Service via Stateless Model - Participant".
-- Click on "Telco Usecase 3- Quality of Service via Stateless Model - Participant".
-- Click "Deploy".
-- Select the HoL Workspace for the HoL (there should only be one; if not, ask the Instructor) then click "Continue".
+- Search for `Telco Usecase 3- Quality of Service via Stateless Model - Participant`.
+- Click on `Telco Usecase 3- Quality of Service via Stateless Model - Participant`.
+- Click `Deploy`.
+- Select the HoL Workspace for the HoL (there should only be one; if not, ask the Instructor) then click `Continue`.
 - Populate the Overview Page:
-  - Enter a "Distinct Deployment Name using your User ID or Name".
+  - Enter a `Distinct Deployment Name using your User ID or Name`.
   - Leave the rest of the fields blank.
-  - Click "Next".
-- "Click "Next" on the "NiFi Configuration" Page.
+  - Click `Next`.
+- Click `Next` on the `NiFi Configuration` Page.
 - Populate the Parameters Page:
   - Enter your Workload Username.
   - Enter your Workload Password.
   - Update the Kafka Topic List to:
-  - 
     ```ruby
        cdfv1-smm-dh-corebroker1.jt-demo.u5hb-n231.a2.cloudera.site:9093,
        cdfv1-smm-dh-corebroker0.jt-demo.u5hb-n231.a2.cloudera.site:9093,
        cdfv1-smm-dh-corebroker2.jt-demo.u5hb-n231.a2.cloudera.site:9093
     ```
-    
-  - Click "Next".
-- Click "Next" on the "Sizing & Scaling Page".
-- Click "Next" on the "Key Performance Indicators Page".
-- Click "Deploy" on the "Review Page".
-- Click anywhere on the screen. You have now navigated to the "Deployments" page. Search for your Deployment if it is not visible on the main page.
+  - Click `Next`.
+- Click `Next` on the `Sizing & Scaling Page`.
+- Click `Next` on the `Key Performance Indicators Page`.
+- Click `Deploy` on the `Review Page`.
+- Click anywhere on the screen. You have now navigated to the `Deployments` page. Search for your Deployment if it is not visible on the main page.
 - Click on your Deployment.
-- Click on "Actions" on the Top Right and select "View in NiFi" to open the Canvas.
+- Click on `Actions` on the Top Right and select `View in NiFi` to open the Canvas.
 
 ### Lab 2: Building on the Canvas
 
@@ -41,7 +39,7 @@ Add content!!!
 
 ![alt text](/img/image80.png)
 
-- Ensure the “ExecuteScript” Processor is in a stopped state.
+- Ensure the `ExecuteScript` Processor is in a stopped state.
 
 ![alt text](/img/image81.png)
 
@@ -49,9 +47,9 @@ Add content!!!
 
 ![alt text](/img/image82.png)
 
-- Edit the “JoltTransformJSON” Processor via Right Click -> Configure
+- Edit the `JoltTransformJSON` Processor via Right Click -> Configure
   - Within Settings
-    - Rename Processor to “Generate Payload”.
+    - Rename Processor to `Generate Payload`.
 
 ![alt text](/img/image83.png)
 
@@ -87,11 +85,11 @@ Add content!!!
 
 ![alt text](/img/image85.png)
 
-- Establish a Relationship between the “SplitJson” and the “Generate Payload” processor for the Split Relationship.
+- Establish a Relationship between the `SplitJson` and the `Generate Payload` processor for the Split Relationship.
 
 ![alt text](/img/image86.png)
 
-- If you notice that your SplitJson is still showing an errored state then please ensure all other relationships with the exception of “Split” are terminated.
+- If you notice that your SplitJson is still showing an errored state then please ensure all other relationships with the exception of `Split` are terminated.
 
 ![alt text](/img/image87.png)
 
@@ -99,7 +97,7 @@ Add content!!!
 
 ![alt text](/img/image88.png)
 
-- Edit the “InvokeHTTP” Processor via Right Click -> Configure
+- Edit the `InvokeHTTP` Processor via Right Click -> Configure
   - Within Settings
     - Rename Processor to `Call Model`.
 
@@ -117,29 +115,29 @@ Add content!!!
 
 ![alt text](/img/image91.png)
 
-- Establish a Relationship between the `Generate Payload` and the “Call Model” processor for the “Success” Relationship.
+- Establish a Relationship between the `Generate Payload` and the `Call Model` processor for the `Success` Relationship.
 
 ![alt text](/img/image92.png)
 
 - Create a new EvaluateJsonPath Processor on the Canvas, we will use this to easily extract the Specification from the JSON
-- Edit the “EvaluateJsonPath” Processor via Right Click -> Configure
+- Edit the `EvaluateJsonPath` Processor via Right Click -> Configure
   - Within Settings
-    - Rename Processor to “ExtractKeyAttributes”.
+    - Rename Processor to `ExtractKeyAttributes`.
 
 ![alt text](/img/image93.png)
 
 - Within Properties
   - Destination = flowfile-attribute
-  - Add a new Parameter “anomaly.classification” with the value “$.response.prediction.results.classification”.
+  - Add a new Parameter `anomaly.classification` with the value `$.response.prediction.results.classification`.
 
 ![alt text](/img/image94.png)
 
 - Within Relationships
-  - Terminate everything except the “Matched” Relationship.
+  - Terminate everything except the `Matched` Relationship.
 
 ![alt text](/img/image95.png)
 
-- Establish a Relationship between the “Call Model” and the “ExtractKeyAttributes” processor for the “Response” Relationship.
+- Establish a Relationship between the `Call Model` and the `ExtractKeyAttributes` processor for the `Response` Relationship.
 
 ![alt text](/img/image96.png)
 
@@ -147,22 +145,22 @@ Add content!!!
 
 ![alt text](/img/image97.png)
 
-- Edit the “RouteOnAttribute” Processor via Right Click -> Configure
+- Edit the `RouteOnAttribute` Processor via Right Click -> Configure
   - Within Properties
-    - Add a new Parameter “Anomaly_Alert” with the value “${anomaly.classification:equals('ANOMALY')}”.
+    - Add a new Parameter `Anomaly_Alert` with the value `${anomaly.classification:equals('ANOMALY')}`.
 
 ![alt text](/img/image98.png)
 
 - Within Relationships
-  - Terminate everything except the “Matched” Relationship (if the Anomaly_Alert relationship doesn’t show in the ‘Relationships’ tab of the processor configuration, ‘Apply’ the changes made so far and re-open the ‘Relationships’ tab).
+  - Terminate everything except the `Matched` Relationship (if the Anomaly_Alert relationship doesn’t show in the ‘Relationships’ tab of the processor configuration, ‘Apply’ the changes made so far and re-open the ‘Relationships’ tab).
 
 ![alt text](/img/image99.png)
 
-- Establish a Relationship between the “ExtractKeyAttributes” and the “RouteOnAttribute” processor for the “Matched” Relationship.
+- Establish a Relationship between the `ExtractKeyAttributes` and the `RouteOnAttribute` processor for the `Matched` Relationship.
 
 ![alt text](/img/image100.png)
 
-- Edit the “ANOMALY - PublishKafka2RecordCDP” Processor via Right Click -> Configure
+- Edit the `ANOMALY - PublishKafka2RecordCDP` Processor via Right Click -> Configure
   - Within Properties
     -	Rename the Topic Name using your Username Prefix or a Unique Identified (i.e. User001-ANOMALY_KAFKA or JT-ANOMALY_KAFKA)
   - Within Relationships
@@ -170,7 +168,7 @@ Add content!!!
 
 ![alt text](/img/image101.png)
 
-- Establish a Relationship between the “RouteOnAttribute” and the “ANOMALY - PublishKafka2RecordCDP” processor for the “Anomaly_Alert” Relationship.
+- Establish a Relationship between the `RouteOnAttribute` and the `ANOMALY - PublishKafka2RecordCDP` processor for the `Anomaly_Alert` Relationship.
 
 ### Lab 3: Running the NiFi Canvas and Viewing the Output
 
