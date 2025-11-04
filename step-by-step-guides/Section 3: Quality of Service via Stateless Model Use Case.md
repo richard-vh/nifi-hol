@@ -152,7 +152,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 ![alt text](/img/image98.png)
 
 - Within Relationships
-  - Terminate everything except the `Matched` Relationship (if the Anomaly_Alert relationship doesn’t show in the ‘Relationships’ tab of the processor configuration, ‘Apply’ the changes made so far and re-open the ‘Relationships’ tab).
+  - Terminate everything except the `Matched` Relationship (if the Anomaly_Alert relationship doesn't show in the `Relationships` tab of the processor configuration, `Apply` the changes made so far and re-open the `Relationships` tab).
 
 ![alt text](/img/image99.png)
 
@@ -172,9 +172,9 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ### Lab 3: Running the NiFi Canvas and Viewing the Output
 
-Like the Prior Use cases use the Run Once Functionality to view the output at each stage alongside using SSM to view the contents of the Kafka Topic.
+As with the prior use cases, use the `Run Once` functionality to view the output at each stage alongside using SSM to view the contents of the Kafka Topic.
 
-Due to the random nature of the data used in this use-case, the first record that flows through the pipeline (as you click ‘run once’ on each processor) may return a failure response from the model endpoint - this is expected.  To test properly you can start all the processors except the first and last in the pipeline, then ‘run once’ on the first processor (ExecuteScript).  This will generate ~200 records into the pipeline, and you’ll see some end up in the queue for the Anomaly Kafka writer processor.
+Due to the random nature of the data used in this use-case, the first record that flows through the pipeline (as you click `run once` on each processor) may return a failure response from the model endpoint - this is expected.  To test properly you can start all the processors except the first and last in the pipeline, then `Run Once` on the first processor (ExecuteScript).  This will generate ~200 records into the pipeline, and you'll see some end up in the queue for the Anomaly Kafka writer processor.
 
 
 
