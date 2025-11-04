@@ -176,7 +176,7 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image35.png)
 
-- 1. **Within Properties:**
+- **Within Properties:**
         - Change "destination" to "flowfile-attribute".
         - Add new parameters by clicking the "+" icon:
             - Property Name = `signal_strength_dbm`, Property Value = `$.signal_strength_dbm`
@@ -245,7 +245,7 @@ STORED AS ICEBERG;
  
 ![alt text](/img/image41.png)
 
-- 1. **Within the Properties Tab:**
+- **Within the Properties Tab:**
         - Rename the Topic Name to your own Username Prefix.
     
 ![alt text](/img/image42.png)
@@ -255,12 +255,12 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image43.png)
 
-- 1. Right-click on the Canvas and select "Paste" twice to create two duplicates.
+- Right-click on the Canvas and select "Paste" twice to create two duplicates.
 
 ![alt text](/img/image44.png)
 ![alt text](/img/image45.png)
 
-- 1. Configure these additional processors:
+- Configure these additional processors:
         - Processor 2 (QOS_FAIR):
             - Settings: Prefix the Processor with the new name "QOS_FAIR - ".
             - Properties: Topic Name = `JT_QOS_FAIR_KAFKA`.
@@ -320,45 +320,46 @@ STORED AS ICEBERG;
 
 ### Lab 6: Access Streams Messaging Manager
 
-- - Navigate to the Control Page Home Page.
+- Navigate to the Control Page Home Page.
  
 ![alt text](/img/image57png)
+
 ![alt text](/img/image58.png)
 
-- - Go to the "Management Console."
+- Go to the "Management Console."
  
 ![alt text](/img/image59.png)
 
-- - Select the "Datahubs" Page.
+- Select the "Datahubs" Page.
  
 ![alt text](/img/image60.png)
 
-- - Search for "cdfv1-smm-dh" and click on the Datahub.
+- Search for "cdfv1-smm-dh" and click on the Datahub.
  
 ![alt text](/img/image61.png)
 ![alt text](/img/image62.png)
 
-- - Click on "Streams Messaging Manager."
+- Click on "Streams Messaging Manager."
 
 ![alt text](/img/image63.png)
 
 ### Lab 7: Explore Topics
 
-- - Click on "Topics."
+- Click on "Topics."
 
 ![alt text](/img/image64.png)
 
-- - Search for your UserID (these are the topics you previously produced to) and select one of them.
+- Search for your UserID (these are the topics you previously produced to) and select one of them.
 
 ![alt text](/img/image65.png)
 
 ### Lab 8: Review Topic Details
 
-- - Click on the "Details" Tab.
+- Click on the "Details" Tab.
 
 ![alt text](/img/image66.png)
 
-- - Explore the various tabs at the top of the screen, paying close attention to the "Data Explorer" tab to understand the data being written to the topic.
+- Explore the various tabs at the top of the screen, paying close attention to the "Data Explorer" tab to understand the data being written to the topic.
 
 ![alt text](/img/image67.png)
 ![alt text](/img/image68.png)
@@ -532,6 +533,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
