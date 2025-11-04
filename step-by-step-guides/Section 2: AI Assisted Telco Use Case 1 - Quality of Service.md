@@ -444,24 +444,34 @@ GROUP BY window_start,
 - Finally, run the last query to enrich the data with information from our data lake (a Kudu Table). This query uses the OUI ID to map to a more readable device name, allowing us to understand device counts over time:
 
 ```ruby
-WITH src AS
-  (SELECT *,
-          PROCTIME() AS proc_time
-   FROM `ssb`.`jturkington_default`.`JT_QOS_POOR_KAFKA`),
-     win AS
-  (SELECT window_start,
-          window_end,
-          mac_oui
-   FROM TABLE(TUMBLE(TABLE src, DESCRIPTOR(proc_time), INTERVAL '15' SECOND)))
-SELECT w.window_start,
-       w.window_end,
-       COALESCE(d.device_type, 'Unknown') AS device_type,
-       COUNT(*) AS total_device_type_count
+WITH src AS (
+  SELECT
+    *,
+    PROCTIME() AS proc_time
+  FROM `ssb`.`jturkington_default`.`JT_QOS_POOR_KAFKA`
+),
+win AS (
+  SELECT
+    window_start,
+    window_end,
+    mac_oui
+  FROM TABLE(
+    TUMBLE(
+      TABLE src,
+      DESCRIPTOR(proc_time),
+      INTERVAL '15' SECOND
+    )
+  )
+)
+SELECT
+  w.window_start,
+  w.window_end,
+  COALESCE(d.device_type, 'Unknown') AS device_type,
+  COUNT(*) AS total_device_type_count
 FROM win AS w
-LEFT JOIN `cdf-kudu-dh-kudu`.`default`.`default.device_oui_dim` d ON w.mac_oui = d.mac_oui
-GROUP BY w.window_start,
-         w.window_end,
-         COALESCE(d.device_type, 'Unknown');
+LEFT JOIN `demo-kudu-dh-v2-kudu`.`default`.`default.device_oui_dim` d
+ON w.mac_oui = d.mac_oui
+GROUP BY w.window_start, w.window_end, COALESCE(d.device_type, 'Unknown');
 ```
 
 # Appendix
@@ -539,6 +549,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
