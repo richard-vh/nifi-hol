@@ -1,7 +1,13 @@
 # Section 2 - AI Assisted Telco Use Case 1 - Quality of Service
 
 ## Description
-Add some content!!!!!
+This hands-on lab guides you through building a real-time data pipeline to monitor and analyze telecommunications Quality of Service (QoS).
+
+You will start by deploying and extending an Apache NiFi dataflow. This flow ingests simulated telco device data, parses JSON, and uses attribute-based routing to classify each connection as "Excellent," "Fair," or "Poor" based on metrics like signal strength.
+
+The classified data is then published to separate Apache Kafka topics. You will also configure a resilient failover path, writing failed "Poor" QoS records to an Apache Iceberg table.
+
+After building the pipeline, you will use Streams Messaging Manager (SMM) to explore the Kafka topics and validate your data. Finally, you will use the Flink Streaming SQL Console to perform real-time analytics, including windowed aggregations and stream-to-table joins, enriching your data against a Kudu dimension table.
 
 ## Pre-Requisites
 
@@ -533,6 +539,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
