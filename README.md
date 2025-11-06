@@ -4,7 +4,10 @@
 
 ## About this Hands On Lab
 
-This hands-on lab provides ...
+**Data in motion** is essentially any data that is in transit, moving from one point to another. This transfer could occur between different software applications, various devices, or across entire networks. It is the direct opposite of data at rest, which is static data held in storage. Data in motion, however, is in a state of continuous movement, often through mechanisms like real-time streams or message queues.
+This includes things like live financial transactions, a constant feed of data from IoT sensors, or security logs being fed into an analytics system. This type of data is active, constantly flowing, and immediately available for processing by the system that receives it.
+
+This hands-on lab provides an introduction to components within Cloudera's Data In Motion portfolio.
 
 ## Agenda
 
