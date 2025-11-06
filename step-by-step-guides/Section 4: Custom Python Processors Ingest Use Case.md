@@ -20,7 +20,7 @@ Using a custom Python processor in NiFi 2, enabling a developer to add functiona
 - On the **NiFi Configuration** page:
   - Check the box for Custom Python Configuration (**This flow deployment uses custom python processors**).
   - Add your username and workload password.
-  - Add the path to the custom processors: `**jt-demo-1-buk-046d9e83/data/nifi-custom-processors/**`.
+  - Add the path to the custom processors: `jt-demo-1-buk-046d9e83/data/nifi-custom-processors/`.
 
 
 ![alt text](/img/image103.png)
