@@ -4,64 +4,57 @@
 
 ## About this Hands On Lab
 
-This hands-on lab provides a comprehensive exploration of Apache Iceberg's capabilities within the Cloudera Data Platform. The agenda is structured into two main sections.
-
-The first section focuses on core Iceberg functionalities using Spark within Cloudera Data Engineering on Data Hubs. Participants will learn how to create, populate, and manage Iceberg tables, including performing data manipulation (inserts, updates, deletes). The lab will delve into the technical details of Iceberg's metadata, different table types (Copy-on-Write, Merge-on-Read), and powerful features such as schema and partition evolution. Attendees will also get practical experience with advanced capabilities like time travel for querying historical data, rollbacks using snapshots, branching for isolated development, and strategies for migrating traditional Hive tables to the Iceberg format. Finally, essential table maintenance operations like compaction and snapshot expiration will be covered.
-
-The second section demonstrates Iceberg's role as a unified table format across the entire data lifecycle and the Cloudera product stack. Participants will interact with the same Iceberg tables using various Cloudera services. They will use Hive in Cloudera Data Warehouse (CDW) to query data and explore features like time travel and maintenance. In CDE, they will build and schedule PySpark jobs to write data into Iceberg. Subsequently, they will use Impala in CDW to run high-performance queries, analyze execution plans to see the benefits of partition evolution, and explore table metadata. Finally, the lab will extend into Cloudera AI, where attendees will use interactive PySpark sessions to further demonstrate Iceberg's ACID compliance and data management capabilities.
+This hands-on lab provides ...
 
 ## Agenda
 
-### Section 1: Spark on Cloudera Data Engineering Data Hubs
+### Section 1: Overview of Cloudera Dataflow
 * Before Starting the Labs
-* Lab 1. Creating Iceberg Tables
-  * Creating an Iceberg Table
-  * Explore the Table Storage Location
-  * Understanding the Metadata Files
-* Lab 2. Iceberg data Manipulation
-  * Best Practices for Managing Data
-  * Iceberg Data Inserts and Updates
-  * Iceberg Data Deletion
-* Lab 3: Iceberg Tables Types (COW and MOR)
-  * Iceberg Copy-on-Write (COW) Table
-  * Iceberg Merge-on-Read (MOR) Table
-* Lab 4: Schema and Partition Evolution
-  * Iceberg Schema Evolution
-  * Iceberg Partition Evolution
-* Lab 5: Iceberg Time Travel & Rollbacks using Snapshots
-  * Understanding Time Travel in Iceberg
-  * Rollback Tables Using Snapshots
-* Lab 6: Iceberg Tagging, Branching and Merging
-  * Iceberg Tagging
-  * Creating Branches in Iceberg
-  * Merging Iceberg Branches
-* Lab 7: Migrating tables from Hive to Iceberg
-  * “CONVERT” In-Place Migration Vanilla Parquet to Iceberg
-  * “Create Table As” (CATS) Migration from Vanilla Parquet to Iceberg
-* Lab 8: Iceberg Table Maintenance
-  * Iceberg Compaction
-  * Iceberg Expiring Snapshots
+* Lab 1. Overview of the Cloudera Data Flow Service
       
-### Section 2: Demonstrating Iceberg Capabilities across the Data Lifecycle and Cloudera Product Stack
-* Before Starting the Labs
-* Lab 1. Streaming Data Ingestion to Iceberg using Cloudera Data Flow
-  * Overview of the Cloudera Data Flow Service
-  * Deploy a Custom Data Flow Template
-* Lab 2. Machine Learning with Iceberg tables using Cloudera AI
-  * Creating and Setting up your Cloudera AI Project
-  * Running Interactive Spark Session and Training and Tuning Models
-  * Using JupyterLab to review the model output
-  * Reviewing Model Run Experiments
-  * Scheduling a Job in Cloudera AI
-  * Delete CAI Project and Clean up resources
-* Lab 3. Data Visualization using Iceberg tables in Cloudera Data Warehouse
+### Section 2: Quality of Service Ingest Use Case
+**Pre-Requisites**
+* Lab 1: Pre-Requisites
+  
+**NiFi Development**
+* Lab 2: Deploy a NiFi Flow from the Catalog
+* Lab 3: Navigating to your Deployment and Opening the Canvas
+* Lab 4: Building on the Canvas
+* Lab 5: Running the NiFi Canvas and Viewing the Output
+  
+**Analysing Kafka via Streams Messaging Manager**
+* Lab 6: Access Streams Messaging Manager
+* Lab 7: Explore Topics
+* Lab 8: Review Topic Details
+  
+**Interacting with Kafka via Flink SQL**
+* Lab 9: To access the Flink Streaming SQL Console
+* Lab 10: Keytab Unlock
+* Lab 11: Project Navigation
+* Lab 12: Running Flink SQL Jobs
+  
+**Appendix**
+
+### Section 3: Quality of Service via Stateless Model Use Case
+
+* Lab 1: Deploy a NiFi Flow from the Catalog
+* Lab 2: Building on the Canvas
+* Lab 3: Running the NiFi Canvas and Viewing the Output
+
+### Section 4: Custom Python Processors Ingest Use Case
+
+* Lab 1: Deploy a NiFi Flow from the Catalog
+* Lab 2: Navigating to your Deployment and Opening the Canvas
+  
 
 ## Step by Step Instructions
 
 Detailed instructions are provided in the step_by_step_guides below. The hand-on labs are divided into trwo sections:
 
-* [Section 1: Spark and Iceberg on Cloudera Data Engineering Data Hubs](step-by-step-guides/Section%201%3A%20Spark%20on%20Cloudera%20Data%20Engineering%20Data%20Hubs.md)
-* [Section 2: Demonstrating Iceberg Capabilities across the Data Lifecycle and Cloudera Product Stack](step-by-step-guides/Section%202%3A%20Demonstrating%20Iceberg%20Capabilities%20across%20the%20Data%20Lifecycle%20and%20Cloudera%20Product%20Stack.md)
+* [Section 1: Overview of Cloudera Dataflow](step-by-step-guides/Section%201%3A%20Overview%20of%20Cloudera%20DataFlow.md)
+* [Section 2: Quality of Service Ingest Use Case](step-by-step-guides/Section%202%3A%20Quality%20of%20Service%20Ingest%20Use%20Case.md)
+* [Section 3: Quality of Service via Stateless Model Use Case](step-by-step-guides/Section%203%3A%20Quality%20of%20Service%20via%20Stateless%20Model%20Use%20Case.md)
+* [Section 4: Custom Python Processors Ingest Use Case](step-by-step-guides/Section%204%3A%20Custom%20Python%20Processors%20Ingest%20Use%20Case.md)
 
 ## Setup Instructions
 
