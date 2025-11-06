@@ -53,7 +53,7 @@ Using a custom Python processor in NiFi 2, enabling a developer to add functiona
 
 - Change the Custom text field to a recipe you would like to generate, click `Apply`
 - Right-click on `Prompt` and `Run Once`
-- Check that the ‘success’ queue gets a single record, which is processed quickly and moves to the ‘success’ queue after ‘RecipeGenerator’
+- Check that the `success` queue gets a single record, which is processed quickly and moves to the `success` queue after `RecipeGenerator`
 - Right-click the output queue and click `List Queue`
 
 ![alt text](/img/image108.png)
@@ -62,13 +62,13 @@ Using a custom Python processor in NiFi 2, enabling a developer to add functiona
 
 ![alt text](/img/image109.png)
 
-- Click `Back to Connection` to return to the canvas.  Before running the flow again, let’s stop the RecipeGenerator so we can check the input as well as the output.  Right-click ‘RecipeGenerator’ and click `Stop`.
-- If you want, change the recipe prompt (see the earlier steps for guidance) then click `Run Once` - this creates a single FlowFile for our process, but otherwise leaves the ‘Prompt’ processor in a ‘Stopped’ state.
+- Click `Back to Connection` to return to the canvas.  Before running the flow again, let's stop the RecipeGenerator so we can check the input as well as the output.  Right-click `RecipeGenerator` and click `Stop`.
+- If you want, change the recipe prompt (see the earlier steps for guidance) then click `Run Once` - this creates a single FlowFile for our process, but otherwise leaves the `Prompt` processor in a `Stopped` state.
 - Check there is a single record in the queue for the RecipeGenerator:
 
 ![alt text](/img/image110.png)
 
 - Right-click and choose `List queue` to see the contents
-- Go back to the canvas and click `Run Once` on ‘RecipeGenerator’ to process that single record
+- Go back to the canvas and click `Run Once` on `RecipeGenerator` to process that single record
 - Check the output queue now shows the additional recipe.
 
