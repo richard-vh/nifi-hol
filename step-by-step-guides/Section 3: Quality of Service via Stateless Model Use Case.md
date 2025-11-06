@@ -79,21 +79,21 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image84.png)
 
-- Within Relationships
-  - Terminate the Failure Relationship
-  - Ensure you Apply the changes.
+- Within **Relationships**
+  - Terminate the **Failure** Relationship.
+  - Ensure you **Apply** the changes.
 
 ![alt text](/img/image85.png)
 
-- Establish a Relationship between the **SplitJson** and the **Generate Payload** processor for the Split Relationship.
+- Establish a Relationship between the **SplitJson** and the **Generate Payload** processor for the **Split** Relationship.
 
 ![alt text](/img/image86.png)
 
-- If you notice that your SplitJson is still showing an errored state then please ensure all other relationships with the exception of **Split** are terminated.
+- If you notice that your **SplitJson** is still showing an errored state then please ensure all other relationships with the exception of **Split** are terminated.
 
 ![alt text](/img/image87.png)
 
-- Create a new InvokeHTTP Processor on the Canvas, we will use this to POST a request to the Model Endpoint.
+- Create a new **InvokeHTTP** Processor on the Canvas, we will use this to POST a request to the Model Endpoint.
 
 ![alt text](/img/image88.png)
 
@@ -110,8 +110,8 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image90.png)
 
-- Within Relationships
-  - Terminate everything exception the Response Relationship.
+- Within **Relationships**
+  - Terminate everything except the **Respons**e Relationship.
 
 ![alt text](/img/image91.png)
 
@@ -120,19 +120,19 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 ![alt text](/img/image92.png)
 
 - Create a new EvaluateJsonPath Processor on the Canvas, we will use this to easily extract the Specification from the JSON
-- Edit the **EvaluateJsonPath** Processor via Right Click -> Configure
-  - Within Settings
+- Edit the **EvaluateJsonPath** Processor via Right Click -> **Configure**
+  - Within **Settings**
     - Rename Processor to `ExtractKeyAttributes`.
 
 ![alt text](/img/image93.png)
 
-- Within Properties
+- Within **Properties**
   - Destination = flowfile-attribute
   - Add a new Parameter `anomaly.classification` with the value `$.response.prediction.results.classification`.
 
 ![alt text](/img/image94.png)
 
-- Within Relationships
+- Within **Relationships**
   - Terminate everything except the **Matched** Relationship.
 
 ![alt text](/img/image95.png)
@@ -151,7 +151,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image98.png)
 
-- Within Relationships
+- Within **Relationships**
   - Terminate everything except the **Matched** Relationship (if the Anomaly_Alert relationship doesn't show in the **Relationships** tab of the processor configuration, **Apply** the changes made so far and re-open the **Relationships** tab).
 
 ![alt text](/img/image99.png)
