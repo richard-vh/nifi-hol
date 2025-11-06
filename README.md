@@ -1,6 +1,6 @@
 # Cloudera Nifi Hands On Lab
 
-![alt text](/img/main.png)
+![alt text](/img/main1.png)
 
 ## About this Hands On Lab
 
