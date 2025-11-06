@@ -11,7 +11,7 @@ Using a custom Python processor in NiFi 2, enabling a developer to add functiona
 - Click **Deploy**
 - Select the HoL Workspace for the HoL (there should only be one; if not, ask the Instructor) then click **Continue**
 - Populate the Overview Page:
-  - Enter a Distinct Deployment Name using your User ID or Name, e.g. Usecase 3 Python [your initials]
+  - Enter a Distinct Deployment Name using your User ID or Name, e.g. `Usecase 3 Python <your initials>`
   - Leave the rest of the fields blank.
   - Click **Next**
 
