@@ -53,7 +53,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image83.png)
 
-- Within Properties
+- Within **Properties**
   - Adjust the Jolt Specification to use the below code (Note the accessKey below will be different so please ask your instructor). 
 
 ```ruby
@@ -103,7 +103,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image89.png)
 
-- Within Properties
+- Within **Properties**
   - HTTP Method = `POST`
   - HTTP URL = `https://<provided by your instructor>/model`
   - Request Content-Type = `application/json`.
@@ -119,7 +119,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 ![alt text](/img/image92.png)
 
-- Create a new EvaluateJsonPath Processor on the Canvas, we will use this to easily extract the Specification from the JSON
+- Create a new **EvaluateJsonPath** Processor on the Canvas, we will use this to easily extract the Specification from the JSON
 - Edit the **EvaluateJsonPath** Processor via Right Click -> **Configure**
   - Within **Settings**
     - Rename Processor to `ExtractKeyAttributes`.
