@@ -44,11 +44,11 @@ STORED AS ICEBERG;
 
 ![alt text](/img/image2.png)
 
-- Search for `Telco Usecase 1- Quality of Service on Ingest - Participant`.
+- Search for `Telco Usecase 1 Quality of Service on Ingest Participant`.
 
 ![alt text](/img/image3.png)
 
-- Click on `Telco Usecase 1- Quality of Service on Ingest - Participant`.
+- Click on `Telco Usecase 1 Quality of Service on Ingest Participant`.
 
 ![alt text](/img/image4.png)
 ![alt text](/img/image5.png)
@@ -549,6 +549,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
