@@ -212,12 +212,12 @@ STORED AS ICEBERG;
         ```
         ${
         ${wifi_band:equalsIgnoreCase('5 GHz')
-        :and(\${signal_strength_dbm:isEmpty():not()
-        :and(\${signal_strength_dbm:toNumber():ge(-65)})})}
+        :and(${signal_strength_dbm:isEmpty():not()
+        :and(${signal_strength_dbm:toNumber():ge(-65)})})}
         :or(
         ${wifi_band:equalsIgnoreCase('2.4 GHz')
-        :and(\${signal_strength_dbm:isEmpty():not()
-        :and(\${signal_strength_dbm:toNumber():ge(-55)})})}
+        :and(${signal_strength_dbm:isEmpty():not()
+        :and(${signal_strength_dbm:toNumber():ge(-55)})})}
         )
         }
         ```
@@ -226,14 +226,14 @@ STORED AS ICEBERG;
          ```
          ${
          ${wifi_band:equalsIgnoreCase('5 GHz')
-         :and(\${signal_strength_dbm:isEmpty():not()
-         :and(\${signal_strength_dbm:toNumber():ge(-75)})
-         :and(\${signal_strength_dbm:toNumber():lt(-65)})})}
+         :and(${signal_strength_dbm:isEmpty():not()
+         :and(${signal_strength_dbm:toNumber():ge(-75)})
+         :and(${signal_strength_dbm:toNumber():lt(-65)})})}
          :or(
          ${wifi_band:equalsIgnoreCase('2.4 GHz')
-         :and(\${signal_strength_dbm:isEmpty():not()
-         :and(\${signal_strength_dbm:toNumber():ge(-70)})
-         :and(\${signal_strength_dbm:toNumber():lt(-55)})})}
+         :and(${signal_strength_dbm:isEmpty():not()
+         :and(${signal_strength_dbm:toNumber():ge(-70)})
+         :and(${signal_strength_dbm:toNumber():lt(-55)})})}
          )
          }
          ```
@@ -241,7 +241,7 @@ STORED AS ICEBERG;
            
          ```
          ${signal_strength_dbm:isEmpty():not()
-         :and(\${signal_strength_dbm:toNumber():lt(-75)})}
+         :and(${signal_strength_dbm:toNumber():lt(-75)})}
          ```
 
 ![alt text](/img/image40.png)
@@ -549,6 +549,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
