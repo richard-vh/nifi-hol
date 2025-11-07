@@ -7,8 +7,8 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 ### Lab 1: Deploy a NiFi Flow from the Catalog
 
 - Open the Catalog.
-- Search for **Telco Usecase 3 Quality of Service via Stateless Model Participant**.
-- Click on **Telco Usecase 3 Quality of Service via Stateless Model Participant**.
+- Search for **Telco Usecase 2 Quality of Service via Stateless Model Participant**.
+- Click on **Telco Usecase 2 Quality of Service via Stateless Model Participant**.
 - Click **Deploy**.
 - Select the HoL Workspace for the HoL (there should only be one; if not, ask the Instructor) then click **Continue**.
 - Populate the Overview Page:
