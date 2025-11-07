@@ -156,7 +156,7 @@ STORED AS ICEBERG;
 
 - Right-click on the **SplitJson** Processor and select **Configure**.
   - Navigate to **Properties**.
-  - Populate the **JsonPath Expression** value as `\$\[\*\]`
+  - Populate the **JsonPath Expression** value as `$[*]`
   - Click **Apply**.
  
 ![alt text](/img/image31.png)
@@ -549,6 +549,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
