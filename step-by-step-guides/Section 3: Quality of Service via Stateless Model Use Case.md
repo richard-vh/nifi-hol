@@ -21,9 +21,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
   - Enter your Workload Password.
   - Update the Kafka Topic List to:
     ```ruby
-       cdfv1-smm-dh-corebroker1.jt-demo.u5hb-n231.a2.cloudera.site:9093,
-       cdfv1-smm-dh-corebroker0.jt-demo.u5hb-n231.a2.cloudera.site:9093,
-       cdfv1-smm-dh-corebroker2.jt-demo.u5hb-n231.a2.cloudera.site:9093
+       cdfv1-smm-dh-corebroker1.jt-demo.u5hb-n231.a2.cloudera.site:9093,cdfv1-smm-dh-corebroker0.jt-demo.u5hb-n231.a2.cloudera.site:9093,cdfv1-smm-dh-corebroker2.jt-demo.u5hb-n231.a2.cloudera.site:9093
     ```
   - Click **Next**.
 - Click **Next** on the **Sizing & Scaling Page**.
