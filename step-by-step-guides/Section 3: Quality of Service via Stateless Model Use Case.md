@@ -52,7 +52,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 ![alt text](/img/image83.png)
 
 - Within **Properties**
-  - Adjust the Jolt Specification to use the below code (**Note the accessKey below will be different so please ask your instructor**). 
+  - Adjust the Jolt Specification to use the below code (**Note the accessKey below will be provided, so please ask your instructor**). 
 
 ```ruby
 [
