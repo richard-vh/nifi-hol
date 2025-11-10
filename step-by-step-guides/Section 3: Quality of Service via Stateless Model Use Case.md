@@ -52,8 +52,8 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 ![alt text](/img/image83.png)
 
 - Within **Properties**
-  - Adjust the Jolt Specification to use the below code (**Note the accessKey below will be provided, so please ask your instructor**). 
-
+  - Adjust the Jolt Specification to use the below code.
+    
 ```ruby
 [
   {
@@ -69,7 +69,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
     "spec": {
       // 1. Add a new field named "accessKey" at the root level.
       // 2. Assign the hardcoded token value to it.
-      "accessKey": "<provided by your instructor>"
+      "accessKey": "mydsk8e50anj97v4judga9bugmggn4qi"
     }
   }
 ]
@@ -103,7 +103,7 @@ This lab guides you through building an AI-driven data pipeline in Apache NiFi. 
 
 - Within **Properties**
   - HTTP Method = `POST`
-  - HTTP URL = `https://<provided by your instructor>/model`
+  - HTTP URL = `https://modelservice.ml-c8b32079-3c3.jt-demo.u5hb-n231.a2.cloudera.site/model`
   - Request Content-Type = `application/json`.
 
 ![alt text](/img/image90.png)
