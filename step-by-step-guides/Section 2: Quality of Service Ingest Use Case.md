@@ -377,7 +377,7 @@ STORED AS ICEBERG;
 - Navigate to the Control Page Home Page.
 - Go to the **Management Console**.
 - Select the **Datahubs** Page.
-- Search for **cdf-streaming-analytics-dh** and click on the Datahub.
+- Search for **demo-flink-dh-v2** and click on the Datahub.
 
 ![alt text](/img/image69.png)
 ![alt text](/img/image70.png)
@@ -420,26 +420,6 @@ SELECT * FROM JT_QOS_POOR_KAFKA
 ```
 
 ![alt text](/img/image79.png)
-
-- Execute the next query to perform a window action, counting and aggregating data by BSSID as it arrives in the Kafka Topic:
-
-```ruby
-SELECT *,
-       PROCTIME() AS proc_time
-FROM `ssb`.`jturkington_default`.`JT_QOS_POOR_KAFKA` )
-SELECT window_start,
-       window_end,
-       bssid,
-       COUNT(*) AS record_count,
-       SUM(data_usage_mb) AS total_usage_mb,
-       AVG(CAST(signal_strength_dbm AS DOUBLE)) AS avg_signal_dbm,
-       MIN(signal_strength_dbm) AS min_signal_dbm,
-       MAX(signal_strength_dbm) AS max_signal_dbm
-FROM TABLE(TUMBLE(TABLE src, DESCRIPTOR(proc_time), INTERVAL '10' SECOND))
-GROUP BY window_start,
-         window_end,
-         bssid;
-```
 
 - Finally, run the last query to enrich the data with information from our data lake (a Kudu Table). This query uses the OUI ID to map to a more readable device name, allowing us to understand device counts over time:
 
@@ -549,6 +529,7 @@ INSERT INTO default.JT_device_oui_dim VALUES
 ('84:7B:EB','Various','IoT/Networking'),
 ('E8:9E:B8','Various','IoT/Networking');
 ```
+
 
 
 
